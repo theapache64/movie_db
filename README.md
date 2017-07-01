@@ -1,4 +1,4 @@
-#movie_db
+# movie_db
 A simple API for IMDB
 
 ##### Straight to the example
