@@ -118,17 +118,19 @@ public final class IMDBDotComHelper {
 
             System.out.println("PosterUrl : " + posterUrl);
 
-            final String year = getYear(movieName);
+            final String year = getYear();
 
             System.out.println("Year: " + year);
 
-            final String stars = getStars();
-
-            System.out.println("Stars : " + stars);
 
             final String director = getDirector();
 
             System.out.println("Director : " + director);
+
+            final String stars = getStars(director);
+
+            System.out.println("Stars : " + stars);
+
 
             movie = new Movie(movieName, rating, genre, plot, posterUrl, year, stars, director);
         }
@@ -137,16 +139,19 @@ public final class IMDBDotComHelper {
     }
 
 
-    public String getYear(final String movieName) {
+    public String getYear() {
         final String a = imdbHtml.split(MOVE_YEAR_REGEX_EXP1)[1];
         return a.split("/\\?ref_=tt_ov_inf")[0];
     }
 
-    public String getStars() {
-        return null;
+
+    public String getStars(final String director) {
+        String s1 = imdbHtml.split(String.format("Directed by %s.\\s+With ", director))[1].split("\\. ")[0];
+        return s1;
     }
 
     public String getDirector() {
-        return null;
+        String s1 = imdbHtml.split("Directed by ")[1].split("\\.")[0];
+        return s1;
     }
 }

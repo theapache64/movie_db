@@ -8,21 +8,23 @@ import java.util.regex.Pattern;
  */
 public class Lab {
 
-    private static final String MOVIE_YEAR_REGEX_FORMAT = "<meta property='og:title' content=\"%s \\((.+)\\)\"";
-    private static String imdbHtml = "app_id' content='115109575169727' /><meta property='og:title' content=\"Iron Man (2008)\" /><meta property='og:site_name";
-
     public static void main(String[] args) {
-        System.out.println(getYear("Iron Man"));
+        test();
     }
 
-    public static String getYear(final String movieName) {
-        final Pattern yearPattern = Pattern.compile(String.format(MOVIE_YEAR_REGEX_FORMAT, movieName));
-        final Matcher matcher = yearPattern.matcher(imdbHtml);
-        String year = null;
+    private static void test() {
+        final String sampleData = "Directed by Alejandro González Iñárritu.  With Leonardo DiCaprio, Tom Hardy, Will Poulter, Domhnall Gleeson. A frontiersman on a fur tra";
+        //final String sampleData = "Directed by Jon Favreau. With Robert Downey Jr., Gwyneth Paltrow, Terrence Howard, Jeff Bridges. After being held captive in an Afghan cave, billionaire eng.";
+
+        final String regEx = "Directed by (?<Director>.+)\\.\\s+With (?<stars>.+)\\.";
+        final Pattern pattern = Pattern.compile(regEx);
+        final Matcher matcher = pattern.matcher(sampleData);
         if (matcher.find()) {
-            year = matcher.group(1);
+            System.out.println("Director: " + matcher.group("Director"));
+            System.out.println("Stars: " + matcher.group("stars"));
         }
-        return year;
+
     }
+
 
 }
