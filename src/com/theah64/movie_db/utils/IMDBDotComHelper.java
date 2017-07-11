@@ -3,6 +3,9 @@ package com.theah64.movie_db.utils;
 
 import com.theah64.movie_db.models.Movie;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Created by shifar on 15/12/15.
  */
@@ -19,12 +22,14 @@ public final class IMDBDotComHelper {
     private static final String MOVE_PLOT_EXP2_REGEX = "<";
     private static final String MOVIE_POSTER_EXP1_REGEX = "itemprop=\"image\"";
     private static final String MOVIE_POSTER_EXP2_REGEX = "src=\"";
+    private static final String MOVE_YEAR_REGEX_EXP1 = "<a href=\"/year/";
     private final String imdbHtml;
     private Movie movie;
     private String rating;
 
     public IMDBDotComHelper(String imdbHtml) {
         this.imdbHtml = imdbHtml;
+        System.out.println(imdbHtml);
     }
 
     private String getMovieName() {
@@ -113,11 +118,35 @@ public final class IMDBDotComHelper {
 
             System.out.println("PosterUrl : " + posterUrl);
 
-            movie = new Movie(movieName, rating, genre, plot, posterUrl);
+            final String year = getYear(movieName);
 
-            System.out.println("Movie: " + movie);
+            System.out.println("Year: " + year);
+
+            final String stars = getStars();
+
+            System.out.println("Stars : " + stars);
+
+            final String director = getDirector();
+
+            System.out.println("Director : " + director);
+
+            movie = new Movie(movieName, rating, genre, plot, posterUrl, year, stars, director);
         }
 
         return movie;
+    }
+
+
+    public String getYear(final String movieName) {
+        final String a = imdbHtml.split(MOVE_YEAR_REGEX_EXP1)[1];
+        return a.split("/\\?ref_=tt_ov_inf")[0];
+    }
+
+    public String getStars() {
+        return null;
+    }
+
+    public String getDirector() {
+        return null;
     }
 }

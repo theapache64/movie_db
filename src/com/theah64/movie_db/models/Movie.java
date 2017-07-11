@@ -5,14 +5,17 @@ package com.theah64.movie_db.models;
  */
 public class Movie {
 
-    private final String name, rating, genre, plot, posterUrl;
+    private final String name, rating, genre, plot, posterUrl, year,stars,director;
 
-    public Movie(String name, String rating, String genre, String plot, String posterUrl) {
+    public Movie(String name, String rating, String genre, String plot, String posterUrl, String year, String stars, String director) {
         this.name = name;
         this.rating = rating;
         this.genre = genre;
         this.plot = plot;
         this.posterUrl = posterUrl;
+        this.year = year;
+        this.stars = stars;
+        this.director = director;
     }
 
     public String getName() {
@@ -33,5 +36,17 @@ public class Movie {
 
     public String getPosterUrl() {
         return posterUrl;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public String getStars() {
+        return stars;
+    }
+
+    public String getDirector() {
+        return director;
     }
 }
