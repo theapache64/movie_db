@@ -3,9 +3,6 @@ package com.theah64.movie_db.utils;
 
 import com.theah64.movie_db.models.Movie;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /**
  * Created by shifar on 15/12/15.
  */
@@ -90,7 +87,7 @@ public final class IMDBDotComHelper {
         return null;
     }
 
-    public Movie getMovie() {
+    public Movie getMovie(final String imdbId) {
 
         if (movie == null) {
             //Parsing MovieName
@@ -132,7 +129,7 @@ public final class IMDBDotComHelper {
             System.out.println("Stars : " + stars);
 
 
-            movie = new Movie(movieName, rating, genre, plot, posterUrl, year, stars, director);
+            movie = new Movie(movieName, rating, genre, plot, posterUrl, year, stars, director, imdbId);
         }
 
         return movie;

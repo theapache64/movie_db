@@ -1,6 +1,7 @@
 package com.theah64.movie_db.servlets;
 
 import com.theah64.movie_db.database.tables.History;
+import com.theah64.movie_db.database.tables.Movies;
 import com.theah64.movie_db.models.Hiztory;
 import com.theah64.movie_db.models.Movie;
 import com.theah64.movie_db.utils.IMDBDotComHelper;
@@ -52,36 +53,48 @@ public class SearchServlet extends AdvancedBaseServlet {
         try {
 
             //MovieBuff knows the imdb url
-            final String imdbUrl = new MovieBuff().getIMDBUrl(keyword);
+            final MovieBuff.IMDB imdb = new MovieBuff().getIMDBUrl(keyword);
 
-            if (imdbUrl != null) {
+            if (imdb != null) {
 
-                final HttpURLConnection con = (HttpURLConnection) new URL(imdbUrl).openConnection();
+                final Movies movies = Movies.getInstance();
+                final Movie dbMovie = movies.get(imdb.getId());
 
-                if (con.getResponseCode() == 200) {
+                if (dbMovie == null) {
 
-                    final BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-                    final StringBuilder sb = new StringBuilder();
+                    System.out.println(imdb.getUrl());
 
-                    String line;
-                    while ((line = br.readLine()) != null) {
-                        sb.append(line.trim());
-                    }
+                    final HttpURLConnection con = (HttpURLConnection) new URL(imdb.getUrl()).openConnection();
 
-                    br.close();
+                    if (con.getResponseCode() == 200) {
 
-                    final IMDBDotComHelper imdbHelper = new IMDBDotComHelper(sb.toString());
-                    final Movie movie = imdbHelper.getMovie();
+                        final BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                        final StringBuilder sb = new StringBuilder();
 
-                    if (movie != null) {
-                        History.getInstance().add(new Hiztory(keyword, null));
-                        setResponse(movie);
+                        String line;
+                        while ((line = br.readLine()) != null) {
+                            sb.append(line.trim());
+                        }
+
+                        br.close();
+
+                        final IMDBDotComHelper imdbHelper = new IMDBDotComHelper(sb.toString());
+                        final Movie movie = imdbHelper.getMovie(imdb.getId());
+
+                        if (movie != null) {
+                            movies.add(movie);
+                            History.getInstance().add(new Hiztory(keyword, null));
+                            setResponse(movie);
+                        } else {
+                            throw new RequestException("Something went wrong while collecting movie details from imdb database");
+                        }
+
                     } else {
-                        throw new RequestException("Something went wrong while collecting movie details from imdb database");
+                        throw new RequestException("Movie not found");
                     }
-
                 } else {
-                    throw new RequestException("Movie not found");
+                    History.getInstance().add(new Hiztory(keyword, null));
+                    setResponse(dbMovie);
                 }
 
             } else {

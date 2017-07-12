@@ -5,9 +5,9 @@ package com.theah64.movie_db.models;
  */
 public class Movie {
 
-    private final String name, rating, genre, plot, posterUrl, year,stars,director;
+    private final String name, rating, genre, plot, posterUrl, year,stars,director, imdbId;
 
-    public Movie(String name, String rating, String genre, String plot, String posterUrl, String year, String stars, String director) {
+    public Movie(String name, String rating, String genre, String plot, String posterUrl, String year, String stars, String director, String imdbId) {
         this.name = name;
         this.rating = rating;
         this.genre = genre;
@@ -16,6 +16,12 @@ public class Movie {
         this.year = year;
         this.stars = stars;
         this.director = director;
+        this.imdbId = imdbId;
+    }
+
+
+    public String getImdbId() {
+        return imdbId;
     }
 
     public String getName() {

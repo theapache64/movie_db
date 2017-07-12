@@ -1,8 +1,6 @@
 package com.theah64.movie_db.utils;
 
 
-import com.theah64.movie_db.models.Movie;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -21,12 +19,28 @@ public class MovieBuff {
     private static final String FAKE_USER_AGENT = "ExampleBot 1.0 (+http://example.com/bot)";
     private static final String KEY_IMDB_URL = "imdbUrl";
     private static final String GOOGLE_SEARCH_URL_FORMAT = "http://google.com/search?q=%s%%20imdb%%20rating";
-
     private static final Pattern IMDB_URL_PATTERN = Pattern.compile("(?<imdbUrl>imdb\\.com\\/title\\/(?<imdbId>tt\\d{7}))");
+    private static final String KEY_IMDB_ID = "imdbId";
 
 
+    public static class IMDB {
+        private final String url, id;
 
-    public String getIMDBUrl(final String keyword) {
+        public IMDB(String url, String id) {
+            this.url = url;
+            this.id = id;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public String getId() {
+            return id;
+        }
+    }
+
+    public IMDB getIMDBUrl(final String keyword) {
 
         //Un-optimized code - starts
         final String googleUrlFormat;
@@ -50,7 +64,9 @@ public class MovieBuff {
 
         if (imdbUrlMatcher.find()) {
             //Converting url to http instead of www
-            return String.format("http://%s", imdbUrlMatcher.group(KEY_IMDB_URL));
+            final String url = String.format("http://%s", imdbUrlMatcher.group(KEY_IMDB_URL));
+            final String imdbId = imdbUrlMatcher.group(KEY_IMDB_ID);
+            return new IMDB(url, imdbId);
         }
 
 
