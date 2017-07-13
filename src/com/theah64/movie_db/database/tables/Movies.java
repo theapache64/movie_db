@@ -25,7 +25,6 @@ public class Movies {
     public Movie get(String imdbId) {
         Movie movie = null;
         final String query = "SELECT name, rating, genre, plot, posterUrl, year,stars,director FROM movies WHERE imdb_id = ?";
-
         return movie;
     }
 

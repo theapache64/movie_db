@@ -121,6 +121,7 @@ public class SearchServlet extends AdvancedBaseServlet {
         joMovie.put("stars", movie.getStars());
         joMovie.put("year", movie.getYear());
         joMovie.put("director", movie.getDirector());
+        joMovie.put("imdb_id", movie.getImdbId());
 
         getWriter().write(new Response("Movie found", joMovie).getResponse());
     }
