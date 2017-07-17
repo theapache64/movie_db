@@ -52,55 +52,67 @@ public class SearchServlet extends AdvancedBaseServlet {
 
         try {
 
-            //MovieBuff knows the imdb url
-            final MovieBuff.IMDB imdb = new MovieBuff().getIMDBUrl(keyword);
 
-            if (imdb != null) {
+            final Movies moviesTable = Movies.getInstance();
 
-                final Movies movies = Movies.getInstance();
-                final Movie dbMovie = movies.get(imdb.getId());
+            final Movie keywordMovie = moviesTable.getByKeyword(keyword);
 
-                if (dbMovie == null) {
+            if (keywordMovie == null) {
 
-                    System.out.println(imdb.getUrl());
+                //MovieBuff knows the imdb url
+                final MovieBuff.IMDB imdb = new MovieBuff().getIMDBUrl(keyword);
 
-                    final HttpURLConnection con = (HttpURLConnection) new URL(imdb.getUrl()).openConnection();
+                if (imdb != null) {
 
-                    if (con.getResponseCode() == 200) {
+                    final Movies movies = Movies.getInstance();
+                    final Movie dbMovie = movies.get(imdb.getId());
 
-                        final BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-                        final StringBuilder sb = new StringBuilder();
+                    if (dbMovie == null) {
 
-                        String line;
-                        while ((line = br.readLine()) != null) {
-                            sb.append(line.trim());
-                        }
+                        System.out.println(imdb.getUrl());
 
-                        br.close();
+                        final HttpURLConnection con = (HttpURLConnection) new URL(imdb.getUrl()).openConnection();
 
-                        final IMDBDotComHelper imdbHelper = new IMDBDotComHelper(sb.toString());
-                        final Movie movie = imdbHelper.getMovie(imdb.getId());
+                        if (con.getResponseCode() == 200) {
 
-                        if (movie != null) {
-                            movies.add(movie);
-                            History.getInstance().add(new Hiztory(keyword, null));
-                            setResponse(movie);
+                            final BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                            final StringBuilder sb = new StringBuilder();
+
+                            String line;
+                            while ((line = br.readLine()) != null) {
+                                sb.append(line.trim());
+                            }
+
+                            br.close();
+
+                            final IMDBDotComHelper imdbHelper = new IMDBDotComHelper(sb.toString());
+                            final Movie movie = imdbHelper.getMovie(imdb.getId());
+
+                            if (movie != null) {
+                                movies.add(movie);
+                                History.getInstance().add(new Hiztory(keyword, null));
+                                setResponse(movie);
+                            } else {
+                                throw new RequestException("Something went wrong while collecting movie details from imdb database");
+                            }
+
                         } else {
-                            throw new RequestException("Something went wrong while collecting movie details from imdb database");
+                            throw new RequestException("Movie not found");
                         }
-
                     } else {
-                        throw new RequestException("Movie not found");
+                        History.getInstance().add(new Hiztory(keyword, null));
+                        setResponse(dbMovie);
                     }
+
                 } else {
-                    History.getInstance().add(new Hiztory(keyword, null));
-                    setResponse(dbMovie);
+                    //No movie exist with the name
+                    throw new RequestException("Invalid search");
                 }
 
             } else {
-                //No movie exist with the name
-                throw new RequestException("Invalid search");
+                setResponse(keywordMovie);
             }
+
         } catch (RequestException e) {
             History.getInstance().add(new Hiztory(keyword, e.getMessage()));
             throw e;
