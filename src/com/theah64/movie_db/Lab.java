@@ -16,7 +16,7 @@ public class Lab {
         final String sampleData = "Directed by Alejandro González Iñárritu.  With Leonardo DiCaprio, Tom Hardy, Will Poulter, Domhnall Gleeson. A frontiersman on a fur tra";
         //final String sampleData = "Directed by Jon Favreau. With Robert Downey Jr., Gwyneth Paltrow, Terrence Howard, Jeff Bridges. After being held captive in an Afghan cave, billionaire eng.";
 
-        final String regEx = "Directed by (?<Director>.+)\\.\\s+With (?<stars>.+)\\.";
+        final String regEx = "Directed by (?<Director>.+)\\.\\s+W   ith (?<stars>.+)\\.";
         final Pattern pattern = Pattern.compile(regEx);
         final Matcher matcher = pattern.matcher(sampleData);
         if (matcher.find()) {

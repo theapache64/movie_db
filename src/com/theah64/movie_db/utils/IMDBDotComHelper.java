@@ -129,7 +129,7 @@ public final class IMDBDotComHelper {
             System.out.println("Stars : " + stars);
 
 
-            movie = new Movie(movieName, rating, genre, plot, posterUrl, year, stars, director, imdbId);
+            movie = new Movie(movieName, rating, genre, plot, posterUrl, year, stars, director, imdbId, hasValidRating);
         }
 
         return movie;

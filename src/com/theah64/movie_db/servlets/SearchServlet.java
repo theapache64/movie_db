@@ -1,8 +1,8 @@
 package com.theah64.movie_db.servlets;
 
-import com.theah64.movie_db.database.tables.History;
+import com.theah64.movie_db.database.tables.Requests;
 import com.theah64.movie_db.database.tables.Movies;
-import com.theah64.movie_db.models.Hiztory;
+import com.theah64.movie_db.models.Request;
 import com.theah64.movie_db.models.Movie;
 import com.theah64.movie_db.utils.IMDBDotComHelper;
 import com.theah64.movie_db.utils.MovieBuff;
@@ -47,10 +47,27 @@ public class SearchServlet extends AdvancedBaseServlet {
         System.out.println("-----------------------");
 
         //Getting keyword first
-        final String keyword = getStringParameter(KEY_KEYWORD);
+        String keyword = getStringParameter(KEY_KEYWORD);
+        keyword = keyword.trim().toLowerCase();
+
         System.out.println("Search: " + keyword);
 
         try {
+
+            //Search if it exist in requests
+            final Request request = Requests.getInstance().get(Requests.COLUMN_KEYWORD, keyword);
+
+            if (request != null) {
+                //keyword exist in db
+                if (request.getMovieId() != null) {
+                    //request has movie
+                    final Movie movie = Movies.getInstance().get()
+                } else {
+                    //request doesn't have movie
+                }
+            } else {
+                //keyword doesn't exist in db
+            }
 
             //MovieBuff knows the imdb url
             final MovieBuff.IMDB imdb = new MovieBuff().getIMDBUrl(keyword);
@@ -83,7 +100,7 @@ public class SearchServlet extends AdvancedBaseServlet {
 
                         if (movie != null) {
                             movies.add(movie);
-                            History.getInstance().add(new Hiztory(keyword, null));
+                            Requests.getInstance().add(new Request(keyword, null));
                             setResponse(movie);
                         } else {
                             throw new RequestException("Something went wrong while collecting movie details from imdb database");
@@ -93,7 +110,7 @@ public class SearchServlet extends AdvancedBaseServlet {
                         throw new RequestException("Movie not found");
                     }
                 } else {
-                    History.getInstance().add(new Hiztory(keyword, null));
+                    Requests.getInstance().add(new Request(keyword, null));
                     setResponse(dbMovie);
                 }
 
@@ -102,7 +119,7 @@ public class SearchServlet extends AdvancedBaseServlet {
                 throw new RequestException("Invalid search");
             }
         } catch (RequestException e) {
-            History.getInstance().add(new Hiztory(keyword, e.getMessage()));
+            Requests.getInstance().add(new Request(keyword, e.getMessage()));
             throw e;
         }
 
