@@ -7,6 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19f2d53f-5eec-465f-b23e-6dfa63495c66" name="Default" comment="">
+<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/theah64/movie_db/database/tables/base/BaseTable.java" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/theah64/movie_db/database/tables/History.java" afterPath="$PROJECT_DIR$/src/com/theah64/movie_db/database/tables/Requests.java" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/theah64/movie_db/models/Hiztory.java" afterPath="$PROJECT_DIR$/src/com/theah64/movie_db/models/Request.java" />
@@ -17,6 +18,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/theah64/movie_db/models/Movie.java" afterPath="$PROJECT_DIR$/src/com/theah64/movie_db/models/Movie.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/theah64/movie_db/servlets/SearchServlet.java" afterPath="$PROJECT_DIR$/src/com/theah64/movie_db/servlets/SearchServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/theah64/movie_db/utils/IMDBDotComHelper.java" afterPath="$PROJECT_DIR$/src/com/theah64/movie_db/utils/IMDBDotComHelper.java" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,8 +39,13 @@
       <file leaf-file-name="SearchServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/servlets/SearchServlet.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="105">
               <caret line="63" column="63" lean-forward="false" selection-start-line="63" selection-start-column="63" selection-end-line="63" selection-end-column="63" />
+=======
+            <state relative-caret-position="210">
+              <caret line="91" column="40" lean-forward="false" selection-start-line="91" selection-start-column="40" selection-end-line="91" selection-end-column="40" />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -44,14 +53,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Movies.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Movies.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/database/tables/Movies.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="265">
               <caret line="49" column="32" lean-forward="false" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <marker date="1504538096341" expanded="true" signature="2196:2312" ph="INSERT INTO movies... " />
+=======
+            <state relative-caret-position="270">
+              <caret line="30" column="24" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1500441348680" expanded="true" signature="779:894" ph="INSERT INTO movies... " />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
               </folding>
             </state>
           </provider>
@@ -60,12 +77,18 @@
       <file leaf-file-name="Requests.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/database/tables/Requests.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="510">
               <caret line="42" column="31" lean-forward="false" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
               <folding>
                 <marker date="1504519875032" expanded="true" signature="926:967" ph="INSERT INTO requests... " />
                 <marker date="1504519875032" expanded="true" signature="1685:1746" ph="SELECT id, k... requests" />
               </folding>
+=======
+            <state relative-caret-position="585">
+              <caret line="43" column="9" lean-forward="false" selection-start-line="27" selection-start-column="7" selection-end-line="43" selection-end-column="9" />
+              <folding />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
             </state>
           </provider>
         </entry>
@@ -73,6 +96,7 @@
       <file leaf-file-name="Request.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/models/Request.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="240">
               <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
@@ -88,6 +112,11 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+            <state relative-caret-position="840">
+              <caret line="68" column="41" lean-forward="false" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="41" />
+              <folding />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
             </state>
           </provider>
         </entry>
@@ -95,8 +124,13 @@
       <file leaf-file-name="MovieBuff.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/utils/MovieBuff.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="675">
               <caret line="57" column="44" lean-forward="false" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
+=======
+            <state relative-caret-position="60">
+              <caret line="5" column="3" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
               <folding>
                 <element signature="imports" expanded="false" />
                 <element signature="e#1065#1066#0" expanded="false" />
@@ -111,25 +145,37 @@
       <file leaf-file-name="Lab.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/Lab.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="225">
               <caret line="18" column="68" lean-forward="false" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
               <folding>
                 <element signature="e#205#206#0" expanded="false" />
                 <element signature="e#227#228#0" expanded="false" />
               </folding>
+=======
+            <state relative-caret-position="1335">
+              <caret line="89" column="17" lean-forward="false" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
+              <folding />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Movie.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Movie.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/models/Movie.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="120">
               <caret line="8" column="40" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="40" />
               <folding>
                 <element signature="e#769#770#0" expanded="true" />
                 <element signature="e#806#807#0" expanded="true" />
               </folding>
+=======
+            <state relative-caret-position="105">
+              <caret line="7" column="90" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="90" />
+              <folding />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
             </state>
           </provider>
         </entry>
@@ -138,6 +184,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/database/Connection.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
+<<<<<<< HEAD
               <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
               <folding />
             </state>
@@ -149,6 +196,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
               <caret line="3" column="5" lean-forward="false" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+=======
+              <caret line="14" column="49" lean-forward="false" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
               <folding />
             </state>
           </provider>
@@ -165,7 +215,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mock_api</find>
       <find>KEY_IMDB_URL</find>
       <find>gender</find>
       <find>imdbId</find>
@@ -182,14 +231,21 @@
       <find>Robert Downey Jr., Gwyneth Paltrow,</find>
       <find>IMDB_URL_PATTERN</find>
       <find>History</find>
+<<<<<<< HEAD
       <find>hiztory</find>
       <find>prepareStatement</find>
+=======
+      <find>mock_api</find>
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
     </findStrings>
     <replaceStrings>
       <replace>genre</replace>
-      <replace>movie_db</replace>
       <replace>Movies</replace>
+<<<<<<< HEAD
       <replace>request</replace>
+=======
+      <replace>movie_db</replace>
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -220,8 +276,14 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_3.txt" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_2.txt" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/src/com/theah64/movie_db/Lab.java" />
+        <option value="$PROJECT_DIR$/src/com/theah64/movie_db/database/Connection.java" />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
         <option value="$PROJECT_DIR$/src/com/theah64/movie_db/utils/MovieBuff.java" />
         <option value="$PROJECT_DIR$/src/com/theah64/movie_db/utils/IMDBDotComHelper.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/com/theah64/movie_db/database/Connection.java" />
         <option value="$PROJECT_DIR$/web/META-INF/context.xml" />
         <option value="$PROJECT_DIR$/src/com/theah64/movie_db/Lab.java" />
@@ -231,7 +293,11 @@
         <option value="$PROJECT_DIR$/src/com/theah64/movie_db/database/tables/Requests.java" />
         <option value="$PROJECT_DIR$/src/com/theah64/movie_db/servlets/SearchServlet.java" />
         <option value="$PROJECT_DIR$/src/com/theah64/movie_db/models/Movie.java" />
+=======
+        <option value="$PROJECT_DIR$/web/META-INF/context.xml" />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
         <option value="$PROJECT_DIR$/src/com/theah64/movie_db/database/tables/Movies.java" />
+        <option value="$PROJECT_DIR$/src/com/theah64/movie_db/servlets/SearchServlet.java" />
       </list>
     </option>
   </component>
@@ -248,6 +314,7 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="51" />
     <option name="y" value="24" />
@@ -255,7 +322,7 @@
     <option name="height" value="744" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -268,6 +335,7 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
+<<<<<<< HEAD
     <panes>
       <pane id="ProjectPane">
         <subPane>
@@ -437,6 +505,9 @@
       <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
+=======
+    <panes />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -445,12 +516,21 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="js.eslint.eslintPackage" value="" />
+<<<<<<< HEAD
     <property name="SearchEverywhereHistoryKey" value="conte&#9;FILE&#9;file:///home/theapache64/Documents/projects/movie_db/web/META-INF/context.xml&#10;Conne&#9;FILE&#9;file:///home/theapache64/Documents/projects/movie_db/src/com/theah64/movie_db/database/Connection.java&#10;cont&#9;FILE&#9;file:///home/theapache64/Documents/projects/movie_db/web/META-INF/context.xml&#10;con&#9;FILE&#9;file:///home/theapache64/Documents/projects/movie_db/src/com/theah64/movie_db/database/Connection.java" />
+=======
+    <property name="SearchEverywhereHistoryKey" value="Movie&#9;FILE&#9;file:///home/theapache64/Documents/projects/movie_db/src/com/theah64/movie_db/models/Movie.java&#10;cont&#9;FILE&#9;file:///home/theapache64/Documents/projects/movie_db/web/META-INF/context.xml&#10;con&#9;FILE&#9;file:///home/theapache64/Documents/projects/movie_db/src/com/theah64/movie_db/database/Connection.java&#10;conte&#9;FILE&#9;file:///home/theapache64/Documents/projects/movie_db/web/META-INF/context.xml&#10;Conne&#9;FILE&#9;file:///home/theapache64/Documents/projects/movie_db/src/com/theah64/movie_db/database/Connection.java" />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="TEXT&#10;JSON" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+<<<<<<< HEAD
       <recent name="$PROJECT_DIR$/src/com/theah64/movie_db/database/tables/base" />
+=======
+      <recent name="$PROJECT_DIR$/web/META-INF" />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
       <recent name="$PROJECT_DIR$/src/com/theah64/movie_db/database" />
       <recent name="$PROJECT_DIR$/src/com/theah64/movie_db/utils" />
       <recent name="$PROJECT_DIR$/src/com/theah64/movie_db/models" />
@@ -954,6 +1034,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="19f2d53f-5eec-465f-b23e-6dfa63495c66" name="Default" comment="" />
@@ -964,16 +1047,29 @@
       <workItem from="1498937079984" duration="3191000" />
       <workItem from="1498972059033" duration="967000" />
       <workItem from="1499778299709" duration="9660000" />
+<<<<<<< HEAD
       <workItem from="1499839664933" duration="2876000" />
       <workItem from="1500130524202" duration="788000" />
       <workItem from="1503831293159" duration="74000" />
       <workItem from="1504509221248" duration="7890000" />
       <workItem from="1504534000423" duration="3012000" />
+=======
+      <workItem from="1499839664933" duration="2857000" />
+      <workItem from="1499925059462" duration="433000" />
+      <workItem from="1500307119833" duration="2259000" />
+      <workItem from="1500441362600" duration="234000" />
+      <workItem from="1500453743757" duration="1406000" />
+      <workItem from="1500548873345" duration="435000" />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="28458000" />
+=======
+    <option name="totallyTimeSpent" value="21442000" />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="24" width="1315" height="744" extended-state="6" />
@@ -998,9 +1094,9 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4857997" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48452014" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24942966" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25335437" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1037,10 +1133,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48452014" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4857997" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24942966" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24901497" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1062,6 +1158,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+=======
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_2.txt" />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
     <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/Lab.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1081,6 +1181,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_3.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1088,14 +1189,21 @@
         </state>
       </provider>
     </entry>
+=======
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_3.txt" />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
     <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/models/Movie.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+<<<<<<< HEAD
           <folding>
             <element signature="e#769#770#0" expanded="true" />
             <element signature="e#806#807#0" expanded="true" />
           </folding>
+=======
+          <folding />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
         </state>
       </provider>
     </entry>
@@ -1110,6 +1218,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="14" column="49" lean-forward="false" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+<<<<<<< HEAD
           <folding />
         </state>
       </provider>
@@ -1118,10 +1227,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/META-INF/context.xml" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1160,6 +1272,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="14" column="49" lean-forward="false" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+<<<<<<< HEAD
           <folding />
         </state>
       </provider>
@@ -1168,10 +1281,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="42" column="41" lean-forward="false" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
+=======
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/META-INF/context.xml" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1182,20 +1298,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_3.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_3.json" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_2.json" />
     <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/utils/RequestException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1238,6 +1342,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="14" column="49" lean-forward="false" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+<<<<<<< HEAD
           <folding />
         </state>
       </provider>
@@ -1246,10 +1351,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="42" column="41" lean-forward="true" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
+=======
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/META-INF/context.xml" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1260,13 +1368,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_2.json" />
     <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/utils/Request.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -1327,20 +1429,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_3.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_2.json" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_3.json" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1358,6 +1448,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_3.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1369,49 +1460,89 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1335">
           <caret line="89" column="45" lean-forward="false" selection-start-line="89" selection-start-column="45" selection-end-line="89" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+=======
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_3.txt" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_2.txt" />
     <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/database/Connection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/META-INF/context.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="5" lean-forward="false" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+          <caret line="14" column="49" lean-forward="false" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/Lab.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="150">
+          <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+          <folding />
+=======
+        <state relative-caret-position="60">
+          <caret line="5" column="3" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/utils/MovieBuff.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="45">
+          <caret line="3" column="5" lean-forward="false" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+=======
+        <state relative-caret-position="840">
+          <caret line="68" column="41" lean-forward="false" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="41" />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/database/tables/History.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="225">
           <caret line="18" column="68" lean-forward="false" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
           <folding>
             <element signature="e#205#206#0" expanded="false" />
             <element signature="e#227#228#0" expanded="false" />
           </folding>
+=======
+        <state relative-caret-position="585">
+          <caret line="43" column="9" lean-forward="false" selection-start-line="27" selection-start-column="7" selection-end-line="43" selection-end-column="9" />
+          <folding />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
         </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_2.txt">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="15">
           <caret line="0" column="5385" lean-forward="false" selection-start-line="0" selection-start-column="5385" selection-end-line="0" selection-end-column="5387" />
+=======
+        <state relative-caret-position="1335">
+          <caret line="89" column="17" lean-forward="false" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/utils/MovieBuff.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="57" column="44" lean-forward="false" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
+=======
+    <entry file="file://$PROJECT_DIR$/web/META-INF/context.xml" />
+    <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/servlets/SearchServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="91" column="40" lean-forward="false" selection-start-line="91" selection-start-column="40" selection-end-line="91" selection-end-column="40" />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
           <folding>
             <element signature="imports" expanded="false" />
             <element signature="e#1065#1066#0" expanded="false" />
@@ -1422,6 +1553,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/database/tables/base/BaseTable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1440">
@@ -1447,6 +1579,15 @@
           <folding>
             <marker date="1504519875032" expanded="true" signature="926:967" ph="INSERT INTO requests... " />
             <marker date="1504519875032" expanded="true" signature="1685:1746" ph="SELECT id, k... requests" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/database/tables/Movies.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="30" column="24" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1500441348680" expanded="true" signature="779:894" ph="INSERT INTO movies... " />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
           </folding>
         </state>
       </provider>
@@ -1465,6 +1606,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/theah64/movie_db/servlets/SearchServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
+<<<<<<< HEAD
           <caret line="63" column="63" lean-forward="false" selection-start-line="63" selection-start-column="63" selection-end-line="63" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1480,6 +1622,10 @@
             <element signature="imports" expanded="true" />
             <marker date="1504538096341" expanded="true" signature="2196:2312" ph="INSERT INTO movies... " />
           </folding>
+=======
+          <caret line="7" column="90" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="90" />
+          <folding />
+>>>>>>> 956576c4e5cadfe58eb5a58ea5d534aae8b310d2
         </state>
       </provider>
     </entry>

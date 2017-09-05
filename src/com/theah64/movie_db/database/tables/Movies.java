@@ -62,6 +62,7 @@ public class Movies extends BaseTable<Movie> {
                 e.printStackTrace();
             }
         }
+        final String query = "SELECT name, rating, genre, plot, posterUrl, year,stars,director FROM movies WHERE imdb_id = ?";
         return movie;
     }
 
@@ -95,5 +96,9 @@ public class Movies extends BaseTable<Movie> {
         }
 
         return manageError(error);
+    }
+
+    public Movie getByKeyword(String keyword) {
+
     }
 }
