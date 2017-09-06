@@ -1,9 +1,9 @@
 package com.theah64.movie_db.servlets;
 
-import com.theah64.movie_db.database.tables.Requests;
 import com.theah64.movie_db.database.tables.Movies;
-import com.theah64.movie_db.models.Request;
+import com.theah64.movie_db.database.tables.Requests;
 import com.theah64.movie_db.models.Movie;
+import com.theah64.movie_db.models.Request;
 import com.theah64.movie_db.utils.IMDBDotComHelper;
 import com.theah64.movie_db.utils.MovieBuff;
 import com.theah64.movie_db.utils.RequestException;
@@ -60,8 +60,17 @@ public class SearchServlet extends AdvancedBaseServlet {
             if (request != null) {
                 //keyword exist in db
                 if (request.getMovieId() != null) {
+
                     //request has movie
-                    final Movie movie = Movies.getInstance().get()
+                    final Movie movie = Movies.getInstance().get(Movies.COLUMN_ID, request.getMovieId());
+
+                    if(movie.isHasValidRating()){
+                        //Movie has valid rating
+                        Requests.getInstance().
+                    }else{
+                        //Movie rating should be updated
+                    }
+
                 } else {
                     //request doesn't have movie
                 }
@@ -115,38 +124,38 @@ public class SearchServlet extends AdvancedBaseServlet {
                                 throw new RequestException("Something went wrong while collecting movie details from imdb database");
                             }
 
-                        if (movie != null) {
-                            movies.add(movie);
-                            Requests.getInstance().add(new Request(keyword, null));
-                            setResponse(movie);
+                            if (movie != null) {
+                                movies.add(movie);
+                                Requests.getInstance().add(new Request(keyword, null));
+                                setResponse(movie);
+                            } else {
+                                throw new RequestException("Movie not found");
+                            }
                         } else {
-                            throw new RequestException("Movie not found");
+                            History.getInstance().add(new Hiztory(keyword, null));
+                            setResponse(dbMovie);
                         }
+
                     } else {
-                        History.getInstance().add(new Hiztory(keyword, null));
+                        Requests.getInstance().add(new Request(keyword, null));
                         setResponse(dbMovie);
+                        //No movie exist with the name
+                        throw new RequestException("Invalid search");
                     }
 
                 } else {
-                    Requests.getInstance().add(new Request(keyword, null));
-                    setResponse(dbMovie);
-                    //No movie exist with the name
-                    throw new RequestException("Invalid search");
+                    setResponse(keywordMovie);
                 }
 
-            } else {
-                setResponse(keywordMovie);
+            } catch(RequestException e){
+                Requests.getInstance().add(new Request(keyword, e.getMessage()));
+                throw e;
             }
 
-        } catch (RequestException e) {
-            Requests.getInstance().add(new Request(keyword, e.getMessage()));
-            throw e;
+
+            System.out.println("-----------------------");
+
         }
-
-
-        System.out.println("-----------------------");
-
-    }
 
     private void setResponse(Movie movie) throws JSONException {
         final JSONObject joMovie = new JSONObject();

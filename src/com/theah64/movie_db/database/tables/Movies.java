@@ -4,7 +4,6 @@ import com.theah64.movie_db.database.Connection;
 import com.theah64.movie_db.database.tables.base.BaseTable;
 import com.theah64.movie_db.models.Movie;
 
-import javax.xml.transform.Result;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,6 +16,13 @@ public class Movies extends BaseTable<Movie> {
     private static final String COLUMN_IMDB_ID = "imdb_id";
     private static final String COLUMN_RATING = "rating";
     private static final String COLUMN_GENRE = "genre";
+    private static final String COLUMN_PLOT = "plot";
+    private static final String COLUMN_POSTER_URL = "poster_url";
+    private static final String COLUMN_YEAR = "year";
+    private static final String COLUMN_STARS = "stars";
+    private static final String COLUMN_DIRECTOR = "director";
+    private static final String COLUMN_AS_UPDATED_DAYS_BEFORE = "";
+    private static final int MAXIMUM_MOVIE_RATING_EXPIRATION_IN_DAYS = 10;
     private static Movies instance;
 
     public Movies() {
@@ -33,7 +39,8 @@ public class Movies extends BaseTable<Movie> {
     @Override
     public Movie get(String column, String value) {
         Movie movie = null;
-        final String query = String.format("SELECT id, imdb_id, name, rating, genre,plot,poster_url,year,stars,director, DATEDIFF(now(),updated_at) AS updated_days_before FROM movies WHERE %s = ?", column);
+
+        final String query = String.format("SELECT imdb_id, name, rating, genre,plot,poster_url,year,stars,director, DATEDIFF(now(),updated_at) AS updated_days_before FROM movies WHERE %s = ?", column);
         final java.sql.Connection con = Connection.getConnection();
         try {
             final PreparedStatement ps = con.prepareStatement(query);
@@ -42,12 +49,19 @@ public class Movies extends BaseTable<Movie> {
             final ResultSet rs = ps.executeQuery();
 
             if (rs.first()) {
-                final String id = rs.getString(COLUMN_ID);
+
                 final String imdbId = rs.getString(COLUMN_IMDB_ID);
                 final String name = rs.getString(COLUMN_NAME);
                 final String rating = rs.getString(COLUMN_RATING);
                 final String genre = rs.getString(COLUMN_GENRE);
-                final String plo
+                final String plot = rs.getString(COLUMN_PLOT);
+                final String posterUrl = rs.getString(COLUMN_POSTER_URL);
+                final String year = rs.getString(COLUMN_YEAR);
+                final String stars = rs.getString(COLUMN_STARS);
+                final String director = rs.getString(COLUMN_DIRECTOR);
+                final int updatedDaysBefore = rs.getInt(COLUMN_AS_UPDATED_DAYS_BEFORE);
+
+                movie = new Movie(name, rating, genre, plot, posterUrl, year, stars, director, imdbId, updatedDaysBefore <= MAXIMUM_MOVIE_RATING_EXPIRATION_IN_DAYS);
             }
 
             rs.close();
@@ -62,7 +76,6 @@ public class Movies extends BaseTable<Movie> {
                 e.printStackTrace();
             }
         }
-        final String query = "SELECT name, rating, genre, plot, posterUrl, year,stars,director FROM movies WHERE imdb_id = ?";
         return movie;
     }
 
@@ -99,6 +112,6 @@ public class Movies extends BaseTable<Movie> {
     }
 
     public Movie getByKeyword(String keyword) {
-
+        return null;
     }
 }
