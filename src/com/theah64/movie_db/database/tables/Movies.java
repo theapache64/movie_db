@@ -82,11 +82,17 @@ public class Movies extends BaseTable<Movie> {
 
     @Override
     public boolean add(Movie movie) throws SQLException {
+        return addv3(movie) != null;
+    }
+
+    @Override
+    public String addv3(Movie movie) {
+
         final String query = "INSERT INTO movies ( name, rating, genre, plot, poster_url, year,stars,director, imdb_id) VALUES (?,?,?,?,?,?,?,?,?);";
-        String error = null;
+        String movieId = null;
         final java.sql.Connection con = Connection.getConnection();
         try {
-            final PreparedStatement ps = con.prepareStatement(query);
+            final PreparedStatement ps = con.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, movie.getName());
             ps.setString(2, movie.getRating());
             ps.setString(3, movie.getGenre());
@@ -97,10 +103,15 @@ public class Movies extends BaseTable<Movie> {
             ps.setString(8, movie.getDirector());
             ps.setString(9, movie.getImdbId());
             ps.executeUpdate();
+            final ResultSet rs = ps.getGeneratedKeys();
+            if (rs.first()) {
+                movieId = rs.getString(1);
+            }
+            rs.close();
             ps.close();
+
         } catch (SQLException e) {
             e.printStackTrace();
-            error = e.getMessage();
         } finally {
             try {
                 con.close();
@@ -109,7 +120,8 @@ public class Movies extends BaseTable<Movie> {
             }
         }
 
-        return manageError(error);
+        return movieId;
+
     }
 
     public Movie getByKeyword(String keyword) {

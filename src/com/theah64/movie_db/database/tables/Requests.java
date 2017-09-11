@@ -34,12 +34,13 @@ public class Requests extends BaseTable<Request> {
 
     @Override
     public boolean add(Request request) throws SQLException {
-        final String query = "INSERT INTO requests (keyword) VALUES (?);";
+        final String query = "INSERT INTO requests (keyword,movie_id) VALUES (?,?);";
         String error = null;
         final java.sql.Connection con = Connection.getConnection();
         try {
             final PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, request.getKeyword());
+            ps.setString(2, request.getMovieId());
             ps.executeUpdate();
             ps.close();
         } catch (SQLException e) {
