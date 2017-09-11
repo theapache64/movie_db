@@ -16,7 +16,7 @@ public class Requests extends BaseTable<Request> {
 
     public static final String COLUMN_KEYWORD = "keyword";
     private static final String COLUMN_MOVIE_ID = "movie_id";
-    private static final String COLUMN_HITS = "hits";
+    public static final String COLUMN_HITS = "hits";
 
 
     private static Requests instance;

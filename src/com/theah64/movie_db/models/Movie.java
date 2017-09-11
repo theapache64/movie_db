@@ -5,10 +5,22 @@ package com.theah64.movie_db.models;
  */
 public class Movie {
 
-    private final String name, rating, genre, plot, posterUrl, year, stars, director, imdbId;
+    private static final String IMDB_URL_FORMAT = "http://www.imdb.com/title/%s/";
+    private final String id;
+    private final String name;
+    private String rating;
+    private final String genre;
+    private final String plot;
+    private final String posterUrl;
+    private final String year;
+    private final String stars;
+    private final String director;
+    private final String imdbId;
     private final boolean hasValidRating;
+    private final String imdbUrl;
 
-    public Movie(String name, String rating, String genre, String plot, String posterUrl, String year, String stars, String director, String imdbId, boolean hasValidRating) {
+    public Movie(String id, String name, String rating, String genre, String plot, String posterUrl, String year, String stars, String director, String imdbId, boolean hasValidRating) {
+        this.id = id;
         this.name = name;
         this.rating = rating;
         this.genre = genre;
@@ -19,6 +31,15 @@ public class Movie {
         this.director = director;
         this.imdbId = imdbId;
         this.hasValidRating = hasValidRating;
+        this.imdbUrl = String.format(IMDB_URL_FORMAT, imdbId);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getImdbUrl() {
+        return imdbUrl;
     }
 
     public boolean isHasValidRating() {
@@ -59,5 +80,9 @@ public class Movie {
 
     public String getDirector() {
         return director;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 }

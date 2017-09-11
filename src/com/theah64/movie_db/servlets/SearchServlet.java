@@ -30,6 +30,8 @@ public class SearchServlet extends AdvancedBaseServlet {
 
     private static final String KEY_KEYWORD = "keyword";
     private static final String[] REQ_PARAMS = {KEY_KEYWORD};
+    private Requests reqTab;
+    private Request request;
 
     @Override
     protected String[] getRequiredParameters() {
@@ -54,21 +56,30 @@ public class SearchServlet extends AdvancedBaseServlet {
 
         try {
 
+            reqTab = Requests.getInstance();
+            final Movies movTab = Movies.getInstance();
+
             //Search if it exist in requests
-            final Request request = Requests.getInstance().get(Requests.COLUMN_KEYWORD, keyword);
+            request = reqTab.get(Requests.COLUMN_KEYWORD, keyword);
 
             if (request != null) {
                 //keyword exist in db
                 if (request.getMovieId() != null) {
 
                     //request has movie
-                    final Movie movie = Movies.getInstance().get(Movies.COLUMN_ID, request.getMovieId());
+                    final Movie movie = movTab.get(Movies.COLUMN_ID, request.getMovieId());
 
-                    if(movie.isHasValidRating()){
+                    if (movie.isHasValidRating()) {
                         //Movie has valid rating
-                        Requests.getInstance().
-                    }else{
+                        incrementHits();
+                        setResponse(movie);
+                    } else {
                         //Movie rating should be updated
+                        final String newRating = new IMDBDotComHelper(movie.getImdbUrl()).getRating();
+                        movie.setRating(newRating);
+                        movTab.update(Movies.COLUMN_ID, movie.getId(), Movies.COLUMN_RATING, newRating);
+                        incrementHits();
+                        setResponse(movie);
                     }
 
                 } else {
@@ -156,6 +167,11 @@ public class SearchServlet extends AdvancedBaseServlet {
             System.out.println("-----------------------");
 
         }
+
+
+    private void incrementHits() throws SQLException {
+        reqTab.update(Requests.COLUMN_ID, request.getId(), Requests.COLUMN_HITS, String.valueOf(request.getHits() + 1));
+    }
 
     private void setResponse(Movie movie) throws JSONException {
         final JSONObject joMovie = new JSONObject();

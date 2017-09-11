@@ -13,8 +13,8 @@ import java.sql.SQLException;
  */
 public class Movies extends BaseTable<Movie> {
 
-    private static final String COLUMN_IMDB_ID = "imdb_id";
-    private static final String COLUMN_RATING = "rating";
+    public static final String COLUMN_IMDB_ID = "imdb_id";
+    public static final String COLUMN_RATING = "rating";
     private static final String COLUMN_GENRE = "genre";
     private static final String COLUMN_PLOT = "plot";
     private static final String COLUMN_POSTER_URL = "poster_url";
@@ -40,7 +40,7 @@ public class Movies extends BaseTable<Movie> {
     public Movie get(String column, String value) {
         Movie movie = null;
 
-        final String query = String.format("SELECT imdb_id, name, rating, genre,plot,poster_url,year,stars,director, DATEDIFF(now(),updated_at) AS updated_days_before FROM movies WHERE %s = ?", column);
+        final String query = String.format("SELECT id,imdb_id, name, rating, genre,plot,poster_url,year,stars,director, DATEDIFF(now(),updated_at) AS updated_days_before FROM movies WHERE %s = ?", column);
         final java.sql.Connection con = Connection.getConnection();
         try {
             final PreparedStatement ps = con.prepareStatement(query);
@@ -50,6 +50,7 @@ public class Movies extends BaseTable<Movie> {
 
             if (rs.first()) {
 
+                final String id = rs.getString(COLUMN_ID);
                 final String imdbId = rs.getString(COLUMN_IMDB_ID);
                 final String name = rs.getString(COLUMN_NAME);
                 final String rating = rs.getString(COLUMN_RATING);
@@ -61,7 +62,7 @@ public class Movies extends BaseTable<Movie> {
                 final String director = rs.getString(COLUMN_DIRECTOR);
                 final int updatedDaysBefore = rs.getInt(COLUMN_AS_UPDATED_DAYS_BEFORE);
 
-                movie = new Movie(name, rating, genre, plot, posterUrl, year, stars, director, imdbId, updatedDaysBefore <= MAXIMUM_MOVIE_RATING_EXPIRATION_IN_DAYS);
+                movie = new Movie(id, name, rating, genre, plot, posterUrl, year, stars, director, imdbId, updatedDaysBefore <= MAXIMUM_MOVIE_RATING_EXPIRATION_IN_DAYS);
             }
 
             rs.close();

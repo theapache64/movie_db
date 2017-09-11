@@ -3,6 +3,12 @@ package com.theah64.movie_db.utils;
 
 import com.theah64.movie_db.models.Movie;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 /**
  * Created by shifar on 15/12/15.
  */
@@ -24,9 +30,27 @@ public final class IMDBDotComHelper {
     private Movie movie;
     private String rating;
 
-    public IMDBDotComHelper(String imdbHtml) {
-        this.imdbHtml = imdbHtml;
-        System.out.println(imdbHtml);
+    public IMDBDotComHelper(String imdbUrl) throws IOException, RequestException {
+
+        final HttpURLConnection con = (HttpURLConnection) new URL(imdbUrl).openConnection();
+
+        if (con.getResponseCode() == 200) {
+
+            final BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            final StringBuilder sb = new StringBuilder();
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line.trim());
+            }
+
+            br.close();
+
+
+            this.imdbHtml = sb.toString();
+        } else {
+            throw new RequestException("Something went wrong, please try again later");
+        }
     }
 
     private String getMovieName() {
@@ -36,7 +60,7 @@ public final class IMDBDotComHelper {
         return movieName;
     }
 
-    private String getRating() {
+    public String getRating() {
         if (this.rating == null) {
             final String[] exp1 = this.imdbHtml.split(MOVIE_RATING_EXP1_REGEX);
             if (exp1.length >= 2) {
@@ -129,7 +153,7 @@ public final class IMDBDotComHelper {
             System.out.println("Stars : " + stars);
 
 
-            movie = new Movie(movieName, rating, genre, plot, posterUrl, year, stars, director, imdbId, hasValidRating);
+            movie = new Movie(null, movieName, rating, genre, plot, posterUrl, year, stars, director, imdbId, true);
         }
 
         return movie;
