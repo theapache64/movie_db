@@ -59,6 +59,7 @@ public class SearchServlet extends AdvancedBaseServlet {
             request = reqTab.get(Requests.COLUMN_KEYWORD, keyword);
 
             if (request != null) {
+
                 //keyword exist in db
                 if (request.getMovieId() != null) {
 
@@ -73,7 +74,7 @@ public class SearchServlet extends AdvancedBaseServlet {
                         //Movie rating should be updated
                         final String newRating = new IMDBDotComHelper(movie.getImdbUrl()).getRating();
                         movie.setRating(newRating);
-                        movTab.update(Movies.COLUMN_ID, movie.getId(), Movies.COLUMN_RATING, newRating);
+                        movTab.updateRating(movie.getId(), newRating);
                         incrementHits();
                         setResponse(movie);
                     }

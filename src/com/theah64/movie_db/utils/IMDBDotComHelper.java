@@ -167,7 +167,8 @@ public final class IMDBDotComHelper {
 
 
     public String getStars(final String director) {
-        String s1 = imdbHtml.split(String.format("Directed by %s.\\s+With ", director))[1].split("\\. ")[0];
+        final String[] directorsNode = imdbHtml.split(String.format("Directed by %s.\\s+With ", director));
+        String s1 = directorsNode.length > 1 ? directorsNode[1].split("\\. ")[0] : null;
         return s1;
     }
 

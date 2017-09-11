@@ -21,7 +21,7 @@ public class Movies extends BaseTable<Movie> {
     private static final String COLUMN_YEAR = "year";
     private static final String COLUMN_STARS = "stars";
     private static final String COLUMN_DIRECTOR = "director";
-    private static final String COLUMN_AS_UPDATED_DAYS_BEFORE = "";
+    private static final String COLUMN_AS_UPDATED_DAYS_BEFORE = "updated_days_before";
     private static final int MAXIMUM_MOVIE_RATING_EXPIRATION_IN_DAYS = 10;
     private static Movies instance;
 
@@ -34,6 +34,36 @@ public class Movies extends BaseTable<Movie> {
             instance = new Movies();
         }
         return instance;
+    }
+
+    public void updateRating(final String movieId, final String newRating) throws SQLException {
+
+        boolean isEdited = false;
+        final String query = "UPDATE movies SET rating = ? , updated_at = NOW() WHERE id = ?;";
+        final java.sql.Connection con = Connection.getConnection();
+
+        try {
+            final PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, newRating);
+            ps.setString(2, movieId);
+
+            isEdited = ps.executeUpdate() == 1;
+            ps.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (!isEdited) {
+            throw new SQLException("Failed to update movie rating");
+        }
+
     }
 
     @Override
@@ -61,6 +91,8 @@ public class Movies extends BaseTable<Movie> {
                 final String stars = rs.getString(COLUMN_STARS);
                 final String director = rs.getString(COLUMN_DIRECTOR);
                 final int updatedDaysBefore = rs.getInt(COLUMN_AS_UPDATED_DAYS_BEFORE);
+
+                System.out.println(name + " updated days before " + updatedDaysBefore);
 
                 movie = new Movie(id, name, rating, genre, plot, posterUrl, year, stars, director, imdbId, updatedDaysBefore <= MAXIMUM_MOVIE_RATING_EXPIRATION_IN_DAYS);
             }
