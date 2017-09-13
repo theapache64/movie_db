@@ -17,6 +17,7 @@ public class Requests extends BaseTable<Request> {
     public static final String COLUMN_KEYWORD = "keyword";
     private static final String COLUMN_MOVIE_ID = "movie_id";
     public static final String COLUMN_HITS = "hits";
+    private static final String COLUMN_AS_CREATED_DAYS_BEFORE = "created_days_before";
 
 
     private static Requests instance;
@@ -59,7 +60,7 @@ public class Requests extends BaseTable<Request> {
 
     @Override
     public Request get(String column, String value) {
-        final String query = String.format("SELECT id, keyword, movie_id, hits FROM requests WHERE %s = ? LIMIT 1", column);
+        final String query = String.format("SELECT id, keyword, movie_id, hits,  DATEDIFF(now(),created_at) AS created_days_before FROM requests WHERE %s = ? ORDER BY id DESC LIMIT 1", column);
         final java.sql.Connection con = Connection.getConnection();
         Request request = null;
         try {
@@ -73,7 +74,9 @@ public class Requests extends BaseTable<Request> {
                 final String movieId = rs.getString(COLUMN_MOVIE_ID);
                 final int hits = rs.getInt(COLUMN_HITS);
 
-                request = new Request(id, keyword, movieId, hits);
+                final int createdDaysBefore = rs.getInt(COLUMN_AS_CREATED_DAYS_BEFORE);
+
+                request = new Request(id, keyword, movieId, hits, createdDaysBefore);
             }
             rs.close();
             ps.close();

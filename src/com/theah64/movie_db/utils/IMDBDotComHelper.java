@@ -49,7 +49,7 @@ public final class IMDBDotComHelper {
 
             this.imdbHtml = sb.toString();
         } else {
-            throw new RequestException("Something went wrong, please try again later");
+            throw new RequestException("Invalid imdb url " + imdbUrl);
         }
     }
 

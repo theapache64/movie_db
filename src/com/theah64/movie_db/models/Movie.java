@@ -5,7 +5,7 @@ package com.theah64.movie_db.models;
  */
 public class Movie {
 
-    private static final String IMDB_URL_FORMAT = "http://www.imdb.com/title/%s/";
+    public static final String IMDB_URL_FORMAT = "http://www.imdb.com/title/%s/";
     private final String id;
     private final String name;
     private String rating;

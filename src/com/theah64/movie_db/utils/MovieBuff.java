@@ -11,6 +11,8 @@ import java.net.URLEncoder;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.theah64.movie_db.models.Movie.IMDB_URL_FORMAT;
+
 /**
  * Created by Shifar Shifz on 8/31/2015 12:04 PM.
  */
@@ -29,6 +31,10 @@ public class MovieBuff {
         public IMDB(String url, String id) {
             this.url = url;
             this.id = id;
+        }
+
+        public IMDB(String imdbId) {
+            this(String.format(IMDB_URL_FORMAT, imdbId), imdbId);
         }
 
         public String getUrl() {

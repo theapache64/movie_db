@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.regex.PatternSyntaxException;
 
 /**
  * Created by theapache64 on 30/6/17.
@@ -46,7 +47,7 @@ public class SearchServlet extends AdvancedBaseServlet {
 
         //Getting keyword first
         String keyword = getStringParameter(KEY_KEYWORD);
-        keyword = keyword.trim().toLowerCase();
+        keyword = keyword.trim().toLowerCase().trim();
 
         System.out.println("Search: " + keyword);
 
@@ -58,7 +59,7 @@ public class SearchServlet extends AdvancedBaseServlet {
             //Search if it exist in requests
             request = reqTab.get(Requests.COLUMN_KEYWORD, keyword);
 
-            if (request != null) {
+            if (request != null && !request.isExpired()) {
 
                 //keyword exist in db
                 if (request.getMovieId() != null) {
@@ -88,16 +89,45 @@ public class SearchServlet extends AdvancedBaseServlet {
 
 
                 //keyword doesn't exist in db
-                final MovieBuff.IMDB imdbUrl = new MovieBuff().getIMDBUrl(keyword);
+                final MovieBuff.IMDB imdbUrl;
+
+
+                if (keyword.matches("^tt\\d{7}$")) {
+                    //It's imdb id
+                    System.out.println("Directly building imdb url");
+                    imdbUrl = new MovieBuff.IMDB(keyword);
+                } else {
+                    //Its some text
+                    imdbUrl = new MovieBuff().getIMDBUrl(keyword);
+                }
+
+
                 if (imdbUrl != null) {
-                    final Movie imdbMovie = new IMDBDotComHelper(imdbUrl.getUrl()).getMovie(imdbUrl.getId());
-                    final String movieId = movTab.addv3(imdbMovie);
-                    final Request goodReq = new Request(null, keyword, movieId, 1);
-                    reqTab.add(goodReq);
-                    setResponse(imdbMovie);
+                    try {
+
+                        //Checking if the movie exist in db
+                        final Movie movie = movTab.get(Movies.COLUMN_IMDB_ID, imdbUrl.getId());
+                        if (movie != null) {
+                            final Request goodReq = new Request(null, keyword, movie.getId(), 1, 1);
+                            reqTab.add(goodReq);
+                            setResponse(movie);
+                        } else {
+                            final Movie imdbMovie = new IMDBDotComHelper(imdbUrl.getUrl()).getMovie(imdbUrl.getId());
+                            final String movieId = movTab.addv3(imdbMovie);
+                            final Request goodReq = new Request(null, keyword, movieId, 1, 1);
+                            reqTab.add(goodReq);
+                            setResponse(imdbMovie);
+                        }
+                    } catch (PatternSyntaxException e) {
+                        e.printStackTrace();
+
+                        final Request badReq = new Request(null, keyword, null, 1, 1);
+                        reqTab.add(badReq);
+                        showNoMovieExists(keyword);
+                    }
                 } else {
                     //No movie exist with the given keyword
-                    final Request badReq = new Request(null, keyword, null, 1);
+                    final Request badReq = new Request(null, keyword, null, 1, 1);
                     reqTab.add(badReq);
                     showNoMovieExists(keyword);
                 }
