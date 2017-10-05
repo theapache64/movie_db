@@ -3,18 +3,17 @@ A simple API for IMDB (no-api-key, no fee, fully free and unlimited access for l
 ##### Straight to the example
 
 ##### Syntax
-```
+
 http://theapache64.xyz:8080/movie_db/search?keyword=[YOUR-KEYWORD]
-```
 
 ##### Example
 
-GET
-```
-http://theapache64.xyz:8080/movie_db/search?keyword=Titanic
-```
+**GET**
+
+[http://theapache64.xyz:8080/movie_db/search?keyword=Titanic](http://theapache64.xyz:8080/movie_db/search?keyword=Titanic)
+
 Response:
-```
+```json
 {
   "data": {
     "plot": "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
