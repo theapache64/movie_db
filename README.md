@@ -1,6 +1,41 @@
 # movie_db
 A simple API for IMDB (no-api-key, no fee, fully free and unlimited access for lifetime).
-##### Straight to the example
+
+### API Documentation
+
+This is a lightweight web service, (REST interface), which provides an easy way to access the IMDB website. Our API works through simple commands, so there should not be a problem coding some nice applications. 
+
+If you find any bug, or have any questions, or any suggestions please shoot me a mail to `theapache64@gmail.com`
+
+### API Endpoints
+
+All the API endpoints return the same data structure as below
+
+| Returned Key        | Description           | Example  |
+|:--------------------|:----------------------|:---------|
+| error               | The returned status for the API call, can be either 'true' or 'false'         |    true |
+| message               | Either the error message or the successful message         |    Movie found |
+| data               | If 'error' is returned as 'false' the API query results will be inside 'data'         |    data |
+
+### /search
+
+HTTP GET
+
+|End Point                                  | Description             |
+|:------------------------------------------|:------------------------|
+|http://theapache64.xyz:8080/movie_db/search|Returns the search result|
+
+|Parameter|Required|Type|Default|Description|
+|---------|--------|----|-------|-----------|
+|`keyword`|true|String|null|The keyword you want perform search against|
+
+Examples
+|URL                                  | Description             |
+|:------------------------------------------|:------------------------|
+|http://theapache64.xyz:8080/movie_db/search?keyword=Ironman|Returns Ironman movie details|
+
+
+##### Further examples
 
 ##### Syntax
 
@@ -48,7 +83,7 @@ Response:
   "error_code": 0,
   "error": false,
   "message": "Movie found"
-}
+}theapache64.xyz:8080/movie_db/search?keyword=Ironman
 ```
 
 As of now, the API only provides basic details like name, plot, rating, genre and posterUrl. If you need more details, shoot me a mail to `theapache64@gmail.com` and i'll implement it. :)
@@ -56,3 +91,4 @@ As of now, the API only provides basic details like name, plot, rating, genre an
 #### Found an issue?
 
 Open an issue (y)
+
