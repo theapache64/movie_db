@@ -25,17 +25,19 @@ HTTP GET
 |:------------------------------------------|:------------------------|
 |http://theapache64.xyz:8080/movie_db/search|Returns the search result|
 
+
 |Parameter|Required|Type|Default|Description|
 |---------|--------|----|-------|-----------|
 |`keyword`|true|String|null|The keyword you want perform search against|
 
 Examples
+
 |URL                                  | Description             |
 |:------------------------------------------|:------------------------|
 |http://theapache64.xyz:8080/movie_db/search?keyword=Ironman|Returns Ironman movie details|
 
 
-##### Further examples
+### Further examples
 
 ##### Syntax
 
