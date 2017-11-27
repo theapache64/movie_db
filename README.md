@@ -4,13 +4,13 @@ A simple API for IMDB (no-api-key, no fee, fully free and unlimited access for l
 
 ##### Syntax
 
-http://theapache64.xyz:8080/movie_db/search?keyword=[YOUR-KEYWORD]
+http://18.220.163.253:8080/movie_db/search?keyword=[YOUR-KEYWORD]
 
 ##### Example
 
 **GET**
 
-[http://theapache64.xyz:8080/movie_db/search?keyword=Titanic](http://theapache64.xyz:8080/movie_db/search?keyword=Titanic)
+[http://18.220.163.253:8080/movie_db/search?keyword=Titanic](http://18.220.163.253:8080/movie_db/search?keyword=Titanic)
 
 Response:
 ```json
@@ -33,7 +33,7 @@ For example if we search `Tony Stark` (Ironman's character name), We'll get the 
 
 GET
 ```
-http://theapache64.xyz:8080/movie_db/search?keyword=Tony+Stark
+http://18.220.163.253:8080/movie_db/search?keyword=Tony+Stark
 ```
 Response:
 ```
