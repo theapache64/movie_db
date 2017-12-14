@@ -12,7 +12,6 @@ import java.sql.SQLException;
  */
 public class Connection {
 
-    public static final boolean debugMode = false;
     private static DataSource ds;
 
     public static java.sql.Connection getConnection() {
@@ -22,7 +21,7 @@ public class Connection {
             if (ds == null) {
                 final Context initContext = new InitialContext();
                 Context envContext = (Context) initContext.lookup("java:/comp/env");
-                ds = (DataSource) envContext.lookup(debugMode ? "jdbc/movie_dbLocal" : "jdbc/movie_dbRemote");
+                ds = (DataSource) envContext.lookup("jdbc/movie_db");
             }
 
             return ds.getConnection();
@@ -33,7 +32,5 @@ public class Connection {
         }
     }
 
-    public static boolean isDebugMode() {
-        return debugMode;
-    }
+
 }
