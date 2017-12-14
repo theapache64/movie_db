@@ -23,7 +23,7 @@ HTTP GET
 
 |End Point                                  | Description             |
 |:------------------------------------------|:------------------------|
-|http://18.220.163.253:8080/movie_db/search|Returns the search result|
+|http://theapache64.com/movie_db/search|Returns the search result|
 
 
 |Parameter|Required|Type|Default|Description|
@@ -34,20 +34,20 @@ Examples
 
 |URL                                  | Description             |
 |:------------------------------------------|:------------------------|
-|http://18.220.163.253:8080/movie_db/search?keyword=Ironman|Returns Ironman movie details|
+|http://theapache64.com/movie_db/search?keyword=Ironman|Returns Ironman movie details|
 
 
 ### Further examples
 
 ##### Syntax
 
-http://18.220.163.253:8080/movie_db/search?keyword=[YOUR-KEYWORD]
+http://theapache64.com/movie_db/search?keyword=[YOUR-KEYWORD]
 
 ##### Example
 
 **GET**
 
-[http://18.220.163.253:8080/movie_db/search?keyword=Titanic](http://18.220.163.253:8080/movie_db/search?keyword=Titanic)
+[http://theapache64.com/movie_db/search?keyword=Titanic](http://theapache64.com/movie_db/search?keyword=Titanic)
 
 Response:
 ```json
@@ -70,7 +70,7 @@ For example if we search `Tony Stark` (Ironman's character name), We'll get the 
 
 GET
 ```
-http://18.220.163.253:8080/movie_db/search?keyword=Tony+Stark
+http://theapache64.com/movie_db/search?keyword=Tony+Stark
 ```
 Response:
 ```
@@ -85,7 +85,7 @@ Response:
   "error_code": 0,
   "error": false,
   "message": "Movie found"
-}18.220.163.253:8080/movie_db/search?keyword=Ironman
+}theapache64.com/movie_db/search?keyword=Ironman
 ```
 
 As of now, the API only provides basic details like name, plot, rating, genre and posterUrl. If you need more details, shoot me a mail to `theapache64@gmail.com` and i'll implement it. :)
