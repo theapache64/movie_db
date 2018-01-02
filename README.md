@@ -7,6 +7,7 @@ This is a lightweight web service, (REST interface), which provides an easy way 
 
 If you find any bug, or have any questions, or any suggestions please shoot me a mail to `theapache64@gmail.com`
 
+
 ### API Endpoints
 
 All the API endpoints return the same data structure as below
