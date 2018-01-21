@@ -94,3 +94,6 @@ As of now, the API only provides basic details like name, plot, rating, genre an
 
 Open an issue (y)
 
+#### Note
+
+Please don't use this API for commericial purposes, as it is just a proof of concept.
