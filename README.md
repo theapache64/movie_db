@@ -1,9 +1,12 @@
+# Depreciated
+Due to heavy traffic and server load, today, Jan 24 2018, we are going to shutdown movie_db service temporarily. If any one interested in hosting or some donation to keep this service, feel free to contact me.
+
 # movie_db
 A simple API for IMDB (no-api-key, no fee, fully free and unlimited access for lifetime).
 
 ### API Documentation
 
-This is a lightweight web service, (REST interface), which provides an easy way to access the IMDB website. Our API works through simple commands, so there should not be a problem coding some nice applications. 
+This is a lightweight web service, (REST interface), which provides an easy way to access the IMDB website. Our API works through simple commands, so there should not be a problem coding some nice applications.
 
 If you find any bug, or have any questions, or any suggestions please shoot me a mail to `theapache64@gmail.com`
 
@@ -66,7 +69,7 @@ Response:
 }
 ```
 
-Please note that the `keyword` can be anything like character name, part of the movie name etc. 
+Please note that the `keyword` can be anything like character name, part of the movie name etc.
 For example if we search `Tony Stark` (Ironman's character name), We'll get the `Ironman` movie.
 
 GET
