@@ -1,6 +1,3 @@
-# Depreciated
-Due to heavy traffic and server load, today, Jan 24 2018, we are going to shutdown movie_db service temporarily. If any one interested in hosting or some donation to keep this service, feel free to contact me.
-
 # movie_db
 A simple API for IMDB (no-api-key, no fee, fully free and unlimited access for lifetime).
 
@@ -100,4 +97,4 @@ Open an issue (y)
 
 #### Note
 
-Please don't use this API for commericial purposes, as it is just a proof of concept.
+Please don't use this API for commericial purposes, as it is just a proof of concept and could be shutdown any moment. If you want commercial copy of this API for permanent usage, feel free to contact me.
