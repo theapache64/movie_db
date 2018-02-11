@@ -8,6 +8,7 @@ import com.theah64.movie_db.models.Request;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Created by shifar on 24/12/15.
@@ -90,5 +91,34 @@ public class Requests extends BaseTable<Request> {
             }
         }
         return request;
+    }
+
+    public long getTotalHits() {
+
+        final String query = "SELECT SUM(hits) FROM requests;";
+        long count = -1;
+
+        final java.sql.Connection con = Connection.getConnection();
+        try {
+            final Statement stmt = con.createStatement();
+            final ResultSet rs = stmt.executeQuery(query);
+            if (rs.first()) {
+                count = rs.getLong(1);
+            }
+            rs.close();
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return count;
+
     }
 }
