@@ -34,8 +34,7 @@ public final class IMDBDotComHelper {
 
         final HttpURLConnection con = (HttpURLConnection) new URL(imdbUrl).openConnection();
 
-        if (con.getResponseCode() == 200) {
-
+        try{
             final BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
             final StringBuilder sb = new StringBuilder();
 
@@ -46,11 +45,12 @@ public final class IMDBDotComHelper {
 
             br.close();
 
-
             this.imdbHtml = sb.toString();
-        } else {
+        }catch (IOException e){
             throw new RequestException("Invalid imdb url " + imdbUrl);
         }
+
+
     }
 
     private String getMovieName() {
