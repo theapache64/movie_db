@@ -32,9 +32,11 @@ public final class IMDBDotComHelper {
 
     public IMDBDotComHelper(String imdbUrl) throws IOException, RequestException {
 
+        System.out.println("IMDB URL : " + imdbUrl);
+
         final HttpURLConnection con = (HttpURLConnection) new URL(imdbUrl).openConnection();
 
-        try{
+        try {
             final BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
             final StringBuilder sb = new StringBuilder();
 
@@ -46,7 +48,7 @@ public final class IMDBDotComHelper {
             br.close();
 
             this.imdbHtml = sb.toString();
-        }catch (IOException e){
+        } catch (IOException e) {
             throw new RequestException("Invalid imdb url " + imdbUrl);
         }
 
@@ -54,6 +56,7 @@ public final class IMDBDotComHelper {
     }
 
     private String getMovieName() {
+        System.out.println(this.imdbHtml);
         final String[] exp1 = this.imdbHtml.split(MOVIE_NAME_EXP1_REGEX);
         final String movieName = exp1[1].split(MOVIE_NAME_EXP2_REGEX)[0];
         System.out.println("Returning Movie name : " + movieName);
