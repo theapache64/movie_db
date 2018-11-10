@@ -43,15 +43,14 @@ public class SearchServlet extends AdvancedBaseServlet {
     @Override
     protected void doAdvancedPost() throws JSONException, SQLException, RequestException, IOException, ServletException {
 
-        System.out.println("-----------------------");
-
-        //Getting keyword first
-        String keyword = getStringParameter(KEY_KEYWORD);
-        keyword = keyword.trim().toLowerCase().trim();
-
-        System.out.println("Search: " + keyword);
-
         try {
+            System.out.println("-----------------------");
+
+            //Getting keyword first
+            String keyword = getStringParameter(KEY_KEYWORD);
+            keyword = keyword.trim().toLowerCase().trim();
+
+            System.out.println("Search: " + keyword);
 
             reqTab = Requests.getInstance();
             final Movies movTab = Movies.getInstance();
@@ -132,10 +131,11 @@ public class SearchServlet extends AdvancedBaseServlet {
                     showNoMovieExists(keyword);
                 }
             }
-        } catch (RequestException e) {
-            throw e;
-        }
 
+        } catch (Exception e) {
+            e.printStackTrace();
+            getWriter().write(new Response(1, e.getMessage()).getResponse());
+        }
 
         System.out.println("-----------------------");
     }

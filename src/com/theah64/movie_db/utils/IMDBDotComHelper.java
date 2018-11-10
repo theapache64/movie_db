@@ -25,6 +25,7 @@ public final class IMDBDotComHelper {
     private static final String MOVE_PLOT_EXP2_REGEX = "<";
     private static final String MOVIE_POSTER_EXP1_REGEX = "itemprop=\"image\"";
     private static final String MOVIE_POSTER_EXP2_REGEX = "src=\"";
+    private static final String MOVIE_POSTER_EXP3_REGEX = "\" /></a>";
     private static final String MOVE_YEAR_REGEX_EXP1 = "<a href=\"/year/";
     private final String imdbHtml;
     private Movie movie;
@@ -97,8 +98,7 @@ public final class IMDBDotComHelper {
         final String[] exp1 = this.imdbHtml.split(posterRegEx);
         if (exp1.length >= 2) {
             String exp2 = exp1[1].split(MOVIE_POSTER_EXP2_REGEX)[1];
-            final String imageUrl = exp2.split("\" /></a>")[0];
-            return imageUrl;
+            return exp2.split(MOVIE_POSTER_EXP3_REGEX)[0];
         }
         return null;
     }
