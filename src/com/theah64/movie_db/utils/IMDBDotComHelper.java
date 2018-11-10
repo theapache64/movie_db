@@ -14,14 +14,14 @@ import java.net.URL;
  */
 public final class IMDBDotComHelper {
 
-    private static final String MOVIE_NAME_EXP1_REGEX = "<h1 itemprop=\"name\" class=\"\">";
+    private static final String MOVIE_NAME_EXP1_REGEX = "<h1 class=\"\">";
     private static final String MOVIE_NAME_EXP2_REGEX = "&nbsp;<";
     private static final String MOVIE_GENDER_EXP1_REGEX = "<\\/time>";
     private static final String MOVIE_GENDER_EXP2_REGEX = "<span class=\"ghost\">\\|<\\/span>";
     private static final String HTML_REMOVE_REGEX = "<[^>]*>";
     private static final String MOVIE_RATING_EXP1_REGEX = "<span itemprop=\"ratingValue\">";
     private static final String MOVIE_RATING_EXP2_REGEX = "</span></strong>";
-    private static final String MOVIE_PLOT_EXP1_REGEX = "<div class=\"summary_text\" itemprop=\"description\">";
+    private static final String MOVIE_PLOT_EXP1_REGEX = "<div class=\"summary_text\">";
     private static final String MOVE_PLOT_EXP2_REGEX = "<";
     private static final String MOVIE_POSTER_EXP1_REGEX = "itemprop=\"image\"";
     private static final String MOVIE_POSTER_EXP2_REGEX = "src=\"";
@@ -56,7 +56,6 @@ public final class IMDBDotComHelper {
     }
 
     private String getMovieName() {
-        System.out.println(this.imdbHtml);
         final String[] exp1 = this.imdbHtml.split(MOVIE_NAME_EXP1_REGEX);
         final String movieName = exp1[1].split(MOVIE_NAME_EXP2_REGEX)[0];
         System.out.println("Returning Movie name : " + movieName);
@@ -97,10 +96,9 @@ public final class IMDBDotComHelper {
         System.out.println(posterRegEx);
         final String[] exp1 = this.imdbHtml.split(posterRegEx);
         if (exp1.length >= 2) {
-            final String exp2 = exp1[1].split(MOVIE_POSTER_EXP1_REGEX)[0];
-            String imageUrl = exp2.split(MOVIE_POSTER_EXP2_REGEX)[1];
-            System.out.println("ImageUrl: " + imageUrl);
-            return imageUrl.substring(0, imageUrl.length() - 1);
+            String exp2 = exp1[1].split(MOVIE_POSTER_EXP2_REGEX)[1];
+            final String imageUrl = exp2.split("\" /></a>")[0];
+            return imageUrl;
         }
         return null;
     }

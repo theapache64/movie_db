@@ -70,7 +70,7 @@ public class MovieBuff {
 
         if (imdbUrlMatcher.find()) {
             //Converting url to http instead of www
-            final String url = String.format("http://%s", imdbUrlMatcher.group(KEY_IMDB_URL));
+            final String url = String.format("https://www.%s", imdbUrlMatcher.group(KEY_IMDB_URL));
             final String imdbId = imdbUrlMatcher.group(KEY_IMDB_ID);
             return new IMDB(url, imdbId);
         }
