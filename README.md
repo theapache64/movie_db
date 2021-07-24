@@ -1,4 +1,4 @@
-# movie_db
+# movie_db (🚨 DEPRECATED)
 A simple API for IMDB (no-api-key, no fee, fully free and unlimited access for lifetime).
 
 ### API Documentation
